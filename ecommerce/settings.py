@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'ij^vn)ex+o(ty5yj@qc64oop3(ptb4k#@3+k1&*d5$hffxhh$!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ecommerce21.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -119,6 +119,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR,'static')
@@ -128,16 +129,16 @@ MEDIA_URL='/images/'
 
 MEDIA_ROOT= os.path.join(BASE_DIR,'static/images')
 
-if os.getcwd() == '/app':
-    import dj_database_url
-    db_from_env = dj_database_url.config(conn_max_age=500)
-    DATABASES['default'].update(db_from_env)
-    #Honor the 'X-forwarded-Proto' header for request.is_secure().
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# if os.getcwd() == '/app':
+#     import dj_database_url
+#     db_from_env = dj_database_url.config(conn_max_age=500)
+#     DATABASES['default'].update(db_from_env)
+#     #Honor the 'X-forwarded-Proto' header for request.is_secure().
+#     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-    #Allow all host headers
-    ALLOWED_HOSTS = ['ecommerce.herokuapp.com']
-    DEBUG = True
+#     #Allow all host headers
+#     ALLOWED_HOSTS = ['ecommerce.herokuapp.com']
+#     DEBUG = True
 
-    #Static asset configuration
-    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+#     #Static asset configuration
+#     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
