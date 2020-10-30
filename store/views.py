@@ -16,27 +16,27 @@ def home(request):
 	products = Product.objects.all()
 	context = {'products':products, 'cartItems':cartItems}
 	return render(request, 'store/home.html', context)
-def productv(request):
-	# data = json.loads(request.body)
-	# # # data = cartData(request)
-	# # products = Product.objects.all()
-	# print('first few characters=<{}>'.format(data[:4]))
-	# customer = request.user.customer
+# def productv(request):
+# 	# data = json.loads(request.body)
+# 	# # # data = cartData(request)
+# 	# # products = Product.objects.all()
+# 	# print('first few characters=<{}>'.format(data[:4]))
+# 	# customer = request.user.customer
 
-	# productId = data['productId']
-	# # cartItems = data['cartItems']
-	# # order = data['order']
-	# # items = data['items']
+# 	# productId = data['productId']
+# 	# # cartItems = data['cartItems']
+# 	# # order = data['order']
+# 	# # items = data['items']
 	
-	# product = Product.objects.get(id=productId)
+# 	# product = Product.objects.get(id=productId)
 	
-	# order, created = Order.objects.get_or_create(customer=customer, complete=False)
+# 	# order, created = Order.objects.get_or_create(customer=customer, complete=False)
 
-	# orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)
-	# print(productId)
-	# context = {'products':products, 'cartItems':cartItems,'product':product}
-	return HttpResponse("store under maintainence")
-	# return HttpResponse("yo")
+# 	# orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)
+# 	# print(productId)
+# 	# context = {'products':products, 'cartItems':cartItems,'product':product}
+# 	return HttpResponse("store under maintainence")
+# 	# return HttpResponse("yo")
 
 def store(request):
 	data = cartData(request)
