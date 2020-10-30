@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-import django_heroku
+# import django_heroku
 import os
 from pathlib import Path
 
@@ -27,11 +27,11 @@ SECRET_KEY = 'ij^vn)ex+o(ty5yj@qc64oop3(ptb4k#@3+k1&*d5$hffxhh$!'
 DEBUG = False
 
 
-ALLOWED_HOSTS = ['ecommerce21.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['ecommerce-21.herokuapp.com','127.0.0.1']
 
 
 # Application definition
-django_heroku.settings(config=locals(), staticfiles=False,logging=False)
+# django_heroku.settings(config=locals(), staticfiles=False,logging=False)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
