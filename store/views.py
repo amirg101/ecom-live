@@ -35,7 +35,7 @@ def productv(request):
 	# orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)
 	# print(productId)
 	# context = {'products':products, 'cartItems':cartItems,'product':product}
-	return render(request, 'store/v.html')
+	return HttpResponse("store under maintainence")
 	# return HttpResponse("yo")
 
 def store(request):

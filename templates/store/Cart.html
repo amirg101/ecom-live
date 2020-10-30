@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {% block content %}
 
-<link rel="stylesheet" href="{% static 'css/main.css' %}">
+<link rel="stylesheet" href="{% staticfiles 'css/main.css' %}">
 <div class="row">
     <div class="col-lg-12">
         <div class="box-element">
@@ -45,8 +45,8 @@
                 <div style="flex:1">
                     <p class="quantity">{{item.quantity}}</p>
                         <div class="quantity">
-                            <img data-product={{item.product.id}} data-action="add" src="{% static 'images/arrow-up.png' %}" alt="" class="chg-quantity update-cart">
-                            <img data-product={{item.product.id}} data-action="remove" src="{% static 'images/arrow-down.png' %}" alt="" class="chg-quantity update-cart">
+                            <img data-product={{item.product.id}} data-action="add" src="{% staticfiles 'images/arrow-up.png' %}" alt="" class="chg-quantity update-cart">
+                            <img data-product={{item.product.id}} data-action="remove" src="{% staticfiles 'images/arrow-down.png' %}" alt="" class="chg-quantity update-cart">
 
                         </div>
                     

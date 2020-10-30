@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
+import django_heroku
 import os
 from pathlib import Path
 
@@ -25,10 +26,12 @@ SECRET_KEY = 'ij^vn)ex+o(ty5yj@qc64oop3(ptb4k#@3+k1&*d5$hffxhh$!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+
 ALLOWED_HOSTS = ['ecommerce21.herokuapp.com','127.0.0.1']
 
 
 # Application definition
+django_heroku.settings(config=locals(), staticfiles=False,logging=False)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -133,7 +136,44 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL='/images/'
 
 MEDIA_ROOT= os.path.join(BASE_DIR,'static/images')
-
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': ('%(asctime)s [%(process)d] [%(levelname)s] '
+                       'pathname=%(pathname)s lineno=%(lineno)s '
+                       'funcname=%(funcName)s %(message)s'),
+            'datefmt': '%Y-%m-%d %H:%M:%S'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        }
+    },
+    'handlers': {
+        'null': {
+            'level': 'DEBUG',
+            'class': 'logging.NullHandler',
+        },
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        }
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'django.request': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+    }
+}
 # if os.getcwd() == '/app':
 #     import dj_database_url
 #     db_from_env = dj_database_url.config(conn_max_age=500)
