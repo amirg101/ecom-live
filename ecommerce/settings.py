@@ -127,63 +127,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR,'static')
 ]
-# STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# if self.static_root:
-#     self.add_files(self.static_root, prefix=self.static_prefix, ignore_missing=self.autorefresh)
-    
 MEDIA_URL='/images/'
 
 MEDIA_ROOT= os.path.join(BASE_DIR,'static/images')
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': ('%(asctime)s [%(process)d] [%(levelname)s] '
-                       'pathname=%(pathname)s lineno=%(lineno)s '
-                       'funcname=%(funcName)s %(message)s'),
-            'datefmt': '%Y-%m-%d %H:%M:%S'
-        },
-        'simple': {
-            'format': '%(levelname)s %(message)s'
-        }
-    },
-    'handlers': {
-        'null': {
-            'level': 'DEBUG',
-            'class': 'logging.NullHandler',
-        },
-        'console': {
-            'level': 'INFO',
-            'class': 'logging.StreamHandler',
-            'formatter': 'verbose'
-        }
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-        'django.request': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
-    }
-}
-# if os.getcwd() == '/app':
-#     import dj_database_url
-#     db_from_env = dj_database_url.config(conn_max_age=500)
-#     DATABASES['default'].update(db_from_env)
-#     #Honor the 'X-forwarded-Proto' header for request.is_secure().
-#     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-#     #Allow all host headers
-#     ALLOWED_HOSTS = ['ecommerce.herokuapp.com']
-#     DEBUG = True
-
-#     #Static asset configuration
-#     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
